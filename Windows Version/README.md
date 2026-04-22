@@ -1,4 +1,4 @@
-#🛡️ ShadowGuard: AI-Driven Honeypot System
+# 🛡️ ShadowGuard: AI-Driven Honeypot System
 
 ShadowGuard is a highly interactive honeypot system developed to trap cyber attackers, analyze their behavior and gather threat intelligence. Unlike traditional static honeypots, it integrates with Large Language Models LLMs to build a unique, dynamic and convincing Virtual File System tailored to each attacker's IP address.
 
