@@ -1,0 +1,35 @@
+services:
+  monitor:
+    build: ./monitor
+    container_name: shadow_monitor
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./monitor:/app
+      - ./honeypot_data/data:/app/data
+    networks:
+      - shadow_net
+
+  honeypot:
+    build: ./honeypot
+    container_name: shadow_honeypot
+    ports:
+      - "80:80"
+      - "8888:8888"
+    networks:
+      - shadow_net
+    volumes:
+      - ./honeypot:/app
+      - ./honeypot_data/data:/app/data
+    depends_on:
+      - ai_bridge
+
+  ai_bridge:
+    build: ./ai_bridge
+    container_name: shadow_ai_bridge
+    networks:
+      - shadow_net
+
+networks:
+  shadow_net:
+    driver: bridge
